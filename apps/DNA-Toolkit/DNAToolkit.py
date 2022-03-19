@@ -10,5 +10,10 @@ def validateSeq(dna_seq):
             return False
         return tmpseq
 
-
+# count nucleotides frequency
+def countNucFreq(dna_seq):
+    temDictseq = {"A":0, "C":0, "G":0, "T":0}
+    for nuc in dna_seq:
+        temDictseq[nuc] += 1
+    return temDictseq
         
