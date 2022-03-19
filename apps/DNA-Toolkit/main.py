@@ -3,7 +3,13 @@ from DNAToolkit import *
 import random
 
 #rndDNAstr = "ATTTCcgtT"
-rndDNAstr = ''.join([random.choice(nucleotides) for nuc in range(20)])
 
 # generate random string
-print(validateSeq(rndDNAstr))
+rndDNAstr = ''.join([random.choice(nucleotides) for nuc in range(50)])
+
+# validate DNA sequence
+#print(validateSeq(rndDNAstr))
+DNAstr = validateSeq(rndDNAstr) # make sure working with a validated string
+
+# count nucleotides frequency
+print(countNucFreq(DNAstr))
