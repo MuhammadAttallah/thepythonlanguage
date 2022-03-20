@@ -1,7 +1,6 @@
 # DNA Toolkit file
 
-nucleotides = ["A", "C", "G", "T"]
-DNA_ReverseComplement = {"A":"T", "T":"A", "G":"C", "C":"G"}
+from structures import *
 
 # check a valid DNA string
 def validateSeq(dna_seq):
@@ -20,9 +19,11 @@ def countNucFreq(dna_seq):
 
 # DNA to RNA transcription
 def transcription(dna_seq):
+    """"DNA -> RNA Transcription. Replacing "T" Thymine with "U" Uracil"""
     return dna_seq.replace("T", "U")
         
 # reverse complement for replication
 def reverse_complement(dna_seq):
+    """Swapping adenine with thymine and guanine with cytosine. Reversing newly generated string"""
     # swap then reverse
     return ''.join([DNA_ReverseComplement[nuc] for nuc in dna_seq])[::-1]
