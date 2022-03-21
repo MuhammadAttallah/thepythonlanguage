@@ -19,11 +19,38 @@ def countNucFreq(dna_seq):
 
 # DNA to RNA transcription
 def transcription(dna_seq):
-    """"DNA -> RNA Transcription. Replacing "T" Thymine with "U" Uracil"""
+    """"
+    DNA -> RNA Transcription. 
+    Replacing "T" Thymine with "U" Uracil
+    """
     return dna_seq.replace("T", "U")
         
 # reverse complement for replication
 def reverse_complement(dna_seq):
-    """Swapping adenine with thymine and guanine with cytosine. Reversing newly generated string"""
+    """
+    Swapping Adenine with Thymine and Guanine with Cytosine. 
+    Reversing newly generated string.
+    """
     # swap then reverse
     return ''.join([DNA_ReverseComplement[nuc] for nuc in dna_seq])[::-1]
+
+    # Pythonic approach
+    # mapping = str.maketrans("ATCG", "TAGC")
+    # return dna_seq.translate(mapping)[::-1]
+
+def gc_content(dna_seq):
+    """GC content in a DNA/RNA sequence"""
+    return (dna_seq.count("C") + dna_seq.count("G") / len(dna_seq) * 100)
+
+def gc_content_subsec(dna_seq, k=20):
+    """"
+    GC Content in a DNA/RNA sub-sequence length k.
+    k=20 by default.
+    """
+    res = []
+    for i in range(0, len(dna_seq) - k + 1, k):
+        subseq = dna_seq[i:i+k]
+        res.append(gc_content(subseq))
+    return res
+
+    
