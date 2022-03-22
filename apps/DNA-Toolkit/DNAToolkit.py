@@ -1,5 +1,6 @@
 # DNA Toolkit file
 
+from mimetypes import init
 from structures import *
 
 # check a valid DNA string
@@ -53,4 +54,6 @@ def gc_content_subsec(dna_seq, k=20):
         res.append(gc_content(subseq))
     return res
 
-    
+def translate_seq(dna_seq, init_pos):
+    """Translates a DNA sequence into an aminoacid sequence"""
+    return [DNA_Codons[dna_seq[pos:pos + 3]] for pos in range(init_pos, len(dna_seq) - 2, 3)]
