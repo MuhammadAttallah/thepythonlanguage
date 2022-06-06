@@ -18,7 +18,8 @@ def home():
               classes='border border-blue-500 m- py-1 px-4 rounded'
               'text-blue-600 hover:bg-red-500 hover:text-white')
 
-    jp.Div(a=div2, text='I am a cool interactive div!!')
+    jp.Div(a=div2, text='I am a cool interactive div!!', mouseenter=mouse_enter,
+           mouseleave=mouse_leave, classes='hover:bg-red-500')
     # jp.Div(a=wp, text='Hello world/home', 
     #        classes='text-orange-900 bg-yellow-500 font-serif text-lg')
     # jp.Div(a=wp, text='Hello agin/home!!')
@@ -27,6 +28,12 @@ def home():
 def sum_up(widget, msg):
     sum = float(widget.in1.value) + float(widget.in2.value)
     widget.d.text = sum
+
+def mouse_enter(widget, msg):
+    widget.text = 'Amouse entered the house!'
+
+def mouse_leave(widget, msg):
+    widget.text = 'The mouse left!'
 
 # @jp.SetRoute('/about')
 # def about():
